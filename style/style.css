@@ -74,7 +74,7 @@
   font-size: 24px;
   color: rgb(0, 0, 0);
   position: relative;
-  top: -54px;
+  top: -60px;
   font-weight: normal;
 }
 #celsius-link,
@@ -101,5 +101,5 @@
 }
 small {
   text-align: center;
-  padding-left: 880px;
+  padding-left: 860px;
 }
