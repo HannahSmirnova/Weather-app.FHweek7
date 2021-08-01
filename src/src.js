@@ -1,6 +1,5 @@
 let now = new Date();
 let date = now.getDate();
-let year = now.getFullYear();
 let days = [
   "Sunday",
   "Monday",
