@@ -52,34 +52,46 @@
 .condition2 {
   color: black;
   font-size: 14px;
+  padding-left: 0px;
 }
 .emoji2 {
   text-align: right;
   padding-top: 10px;
 }
+
+#icon {
+  vertical-align: 0px;
+}
 #description {
-  text-align: right;
-  padding-right: 34px;
+  align-items: center;
+  padding-top: 50px;
+  padding-right: 10px;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 .first {
   padding-left: 10px;
   padding-bottom: 40px;
   text-align: center;
 }
-
+.third {
+  bottom: -30px;
+}
 .degrees {
-  padding-left: 64px;
   color: rgb(0, 110, 197);
   font-weight: bolder;
+  text-align: center;
+  padding-left: 0px;
 }
 #temperature {
-  font-size: 110px;
+  font-size: 90px;
+  top: -60px;
 }
 .units {
-  font-size: 24px;
+  font-size: 20px;
   color: rgb(0, 0, 0);
   position: relative;
-  top: -60px;
+  top: -42px;
   font-weight: normal;
 }
 #celsius-link,
@@ -88,10 +100,9 @@
 }
 .feels-like {
   font-size: 14px;
-  text-align: center;
+  text-align: bottom;
   color: rgb(0, 0, 0);
   font-weight: normal;
-  padding-right: 20px;
 }
 .hourly-link {
   text-decoration: none;
