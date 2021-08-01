@@ -79,6 +79,11 @@
   text-align: center;
   padding-left: 5px;
 }
+.degrees .active {
+  color: rgb(0, 110, 197);
+  cursor: default;
+}
+
 #temperature {
   font-size: 100px;
   top: -60px;
@@ -90,7 +95,7 @@
   top: -42px;
   font-weight: normal;
 }
-
+#celsius-link,
 #fahrenheit-link {
   text-decoration: none;
 }
