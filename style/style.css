@@ -85,12 +85,12 @@
 }
 .units {
   font-size: 40px;
-  color: rgb(0, 0, 0);
   position: relative;
+  color: #0d6efd;
   top: -42px;
   font-weight: normal;
 }
-#celsius-link,
+
 #fahrenheit-link {
   text-decoration: none;
 }
