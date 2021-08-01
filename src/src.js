@@ -84,6 +84,8 @@ function submit(event) {
   search(enteredElement.value);
 }
 
+let celsiusTemp = null;
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", submit);
 
