@@ -62,7 +62,7 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
 let apiKey = "b85b42162b692c033775ce60708963f8";
