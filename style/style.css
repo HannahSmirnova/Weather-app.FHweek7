@@ -54,18 +54,26 @@
   font-size: 14px;
 }
 .emoji2 {
-  text-align: center;
+  text-align: right;
   padding-top: 10px;
+}
+#description {
+  text-align: right;
+  padding-right: 34px;
 }
 .first {
   padding-left: 10px;
   padding-bottom: 40px;
   text-align: center;
 }
+
 .degrees {
-  font-size: 110px;
+  padding-left: 64px;
   color: rgb(0, 110, 197);
   font-weight: bolder;
+}
+#temperature {
+  font-size: 110px;
 }
 .units {
   font-size: 24px;
@@ -82,8 +90,8 @@
   font-size: 14px;
   text-align: center;
   color: rgb(0, 0, 0);
-  padding-left: 36px;
   font-weight: normal;
+  padding-right: 20px;
 }
 .hourly-link {
   text-decoration: none;
