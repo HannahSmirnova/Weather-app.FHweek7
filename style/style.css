@@ -108,6 +108,14 @@
   padding-bottom: 20px;
   padding-top: 0px;
 }
+.hourly1,
+.hourly2,
+.hourly3,
+.hourly4,
+.hourly5 {
+  font-size: 8px;
+  text-align: center;
+}
 .hourly-link {
   text-decoration: none;
   color: #000000;
