@@ -37,7 +37,7 @@
   padding-top: 30px;
   text-align: left;
   font-weight: bolder;
-  padding-left: 10px;
+  padding-left: 20px;
   color: rgb(0, 110, 197);
 }
 .conditions {
@@ -83,7 +83,6 @@
   color: rgb(0, 110, 197);
   cursor: default;
 }
-
 #temperature {
   font-size: 100px;
   top: -60px;
@@ -115,6 +114,26 @@
 .hourly5 {
   font-size: 8px;
   text-align: center;
+}
+.weather-forecast-hour {
+  color: rgb(0, 110, 197);
+}
+.daily1,
+.daily2,
+.daily3,
+.daily4,
+.daily5 {
+  font-size: 10px;
+  text-align: left;
+  padding: 0 0 0 0;
+  padding-top: 22px;
+}
+.weather-forecast-day {
+  text-align: center;
+  font-size: 13px;
+  padding-top: 0px;
+  padding-right: 10px;
+  color: rgb(0, 110, 197);
 }
 .hourly-link {
   text-decoration: none;
