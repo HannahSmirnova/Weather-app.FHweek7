@@ -32,9 +32,12 @@
   padding-right: 70px;
   border-radius: 20px;
 }
+.search-form {
+  padding-bottom: 30px;
+}
 #entered-city {
   font-size: 42px;
-  padding-top: 30px;
+  padding-top: 5px;
   text-align: left;
   font-weight: bolder;
   padding-left: 20px;
@@ -126,7 +129,11 @@
   font-size: 10px;
   text-align: left;
   padding: 0 0 0 0;
-  padding-top: 22px;
+  padding-top: 5px;
+  border-bottom: 0.5px solid rgba(68, 68, 68, 0.432);
+  border-bottom-style: dotted;
+  border-top: 0.5px solid rgba(68, 68, 68, 0.432);
+  border-top-style: dotted;
 }
 .weather-forecast-day {
   text-align: center;
