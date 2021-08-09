@@ -121,15 +121,15 @@
 .weather-forecast-hour {
   color: rgb(0, 110, 197);
 }
-.daily {
+.fourth {
   font-size: 10px;
   text-align: left;
-  padding: 0 0 0 0;
-  padding-top: 5px;
-  border-bottom: 0.5px solid rgba(68, 68, 68, 0.432);
-  border-bottom-style: dotted;
-  border-top: 0.5px solid rgba(68, 68, 68, 0.432);
-  border-top-style: dotted;
+  border-bottom: 1px solid rgba(68, 68, 68, 0.432);
+  border-bottom-style: dashed;
+  border-top: 1px solid rgba(68, 68, 68, 0.432);
+  border-top-style: dashed;
+  border-radius: 5px;
+  background-color: ivory;
 }
 .weather-forecast-day {
   text-align: center;

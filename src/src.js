@@ -38,16 +38,11 @@ function sunDate(timestamp) {
 function displayForecast(response) {
   let forecastDaily = response.data.daily;
 
-  let forecast = document.querySelector("#daily-forecast");
-
-  let forecastHTML = `<div class="row">`;
   forecastDaily.forEach(function (forecastDay, index) {
     if (index < 6) {
-      forecastHTML =
-        forecastHTML +
-        `
-                  <div class="col-2 dailyForecast">
-            <span class="weather-forecast-day-temperature">
+      document.querySelector("#daily-forecast").innerHTML =
+        response.data.daily +
+        `<span class="weather-forecast-day-temperature">
               <img
                 src="https://openweathermap.org/img/wn/${
                   forecastDay.weather[0].icon
@@ -59,12 +54,9 @@ function displayForecast(response) {
             </span>
             <div class="weather-forecast-day">
               <strong>${formatDay(forecastDay.dt)}</strong>
-            </div>
             </div>`;
     }
   });
-  forecastHTML = forecastHTML + `</div>`;
-  forecast.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
