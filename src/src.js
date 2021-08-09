@@ -35,6 +35,45 @@ function sunDate(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+function displayForecast(response) {
+  let forecastDaily = response.data.daily;
+
+  let forecast = document.querySelector("#daily-forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecastDaily.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+                  <div class="col-2 dailyForecast">
+            <span class="weather-forecast-day-temperature">
+              <img
+                src="https://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
+                alt="overcast clouds"
+                width="42"
+              />
+              <strong>${forecastDay.temp}°</strong>
+            </span>
+            <div class="weather-forecast-day">
+              <strong>${formatDay(forecastDay.dt)}</strong>
+            </div>
+            </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "b85b42162b692c033775ce60708963f8";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   console.log(response);
   let iconElement = document.querySelector("#icon");

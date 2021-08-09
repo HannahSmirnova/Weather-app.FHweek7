@@ -121,11 +121,7 @@
 .weather-forecast-hour {
   color: rgb(0, 110, 197);
 }
-.daily1,
-.daily2,
-.daily3,
-.daily4,
-.daily5 {
+.daily {
   font-size: 10px;
   text-align: left;
   padding: 0 0 0 0;
