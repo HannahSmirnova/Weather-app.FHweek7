@@ -131,12 +131,15 @@
   border-radius: 5px;
   background-color: ivory;
 }
-.weather-forecast-day {
+.dailyForecast {
   text-align: center;
   font-size: 13px;
   padding-top: 0px;
   padding-right: 10px;
   color: rgb(0, 110, 197);
+}
+.weather-forecast-day-temperature {
+  color: rgb(0, 0, 0);
 }
 .hourly-link {
   text-decoration: none;

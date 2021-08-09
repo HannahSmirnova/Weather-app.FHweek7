@@ -35,14 +35,23 @@ function sunDate(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
   let forecastDaily = response.data.daily;
+  console.log(forecastDaily);
 
   forecastDaily.forEach(function (forecastDay, index) {
-    if (index < 6) {
-      document.querySelector("#daily-forecast").innerHTML =
-        response.data.daily +
-        `<span class="weather-forecast-day-temperature">
+    console.log(forecastDay);
+    if (index < 5) {
+      document.querySelector(
+        "#daily-forecast"
+      ).innerHTML += `<span class="weather-forecast-day-temperature">
               <img
                 src="https://openweathermap.org/img/wn/${
                   forecastDay.weather[0].icon
@@ -50,7 +59,7 @@ function displayForecast(response) {
                 alt="overcast clouds"
                 width="42"
               />
-              <strong>${forecastDay.temp}°</strong>
+              <strong>${Math.round(forecastDay.temp.day)}°</strong>
             </span>
             <div class="weather-forecast-day">
               <strong>${formatDay(forecastDay.dt)}</strong>
@@ -92,6 +101,8 @@ function displayTemperature(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
