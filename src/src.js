@@ -68,11 +68,56 @@ function displayForecast(response) {
   });
 }
 
+function formatHour(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
+function displayHourlyForecast(response) {
+  let forecastHourly = response.data.hourly;
+  console.log(forecastHourly);
+
+  forecastHourly.forEach(function (forecastHour, index) {
+    console.log(forecastHour);
+    if (index < 5) {
+      document.querySelector(
+        "#hourly-forecast"
+      ).innerHTML += `<span class="weather-forecast-hour-temperature">
+                <img
+                src="https://openweathermap.org/img/wn/${
+                  forecastHour.weather[0].icon
+                }@2x.png"
+                alt="overcast clouds"
+                width="42"/>
+              <strong>${Math.round(forecastHour.temp)}°</strong>
+            </span>
+            <div class="weather-forecast-day">
+              <strong>${formatHour(forecastHour.dt)}</strong>
+            </div>`;
+    }
+  });
+}
+
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "b85b42162b692c033775ce60708963f8";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
+}
+
+function getForecastHourly(coordinates) {
+  console.log(coordinates);
+  let apiKey = "b85b42162b692c033775ce60708963f8";
+  let apiUrl = `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayHourlyForecast);
 }
 
 function displayTemperature(response) {
