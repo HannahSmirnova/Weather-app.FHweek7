@@ -69,16 +69,35 @@ function displayForecast(response) {
 }
 
 function formatHour(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  return `${hours}:${minutes}`;
+  let time = new Date(timestamp * 1000);
+  let forecastHour = time.getHours();
+  let forecastHours = [
+    "1:00",
+    "2:00",
+    "3:00",
+    "4:00",
+    "5:00",
+    "6:00",
+    "7:00",
+    "8:00",
+    "9:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00",
+    "23:00",
+    "24:00",
+  ];
+  return forecastHours[forecastHour];
 }
 
 function displayHourlyForecast(response) {
@@ -99,7 +118,7 @@ function displayHourlyForecast(response) {
                 width="42"/>
               <strong>${Math.round(forecastHour.temp)}°</strong>
             </span>
-            <div class="weather-forecast-day">
+            <div class="weather-forecast-hour">
               <strong>${formatHour(forecastHour.dt)}</strong>
             </div>`;
     }
