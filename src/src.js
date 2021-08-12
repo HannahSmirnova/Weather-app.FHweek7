@@ -53,12 +53,13 @@ function formatDay(timestamp) {
 function displayForecast(response) {
   let forecastDaily = response.data.daily;
   console.log(forecastDaily);
+  let dailyForecast = document.querySelector("#daily-forecast");
+  dailyForecast.innerHTML = "";
   forecastDaily.forEach(function (forecastDay, index) {
     console.log(forecastDay);
-    if (index < 5) {
-      document.querySelector(
-        "#daily-forecast"
-      ).innerHTML += `<span class="weather-forecast-day-temperature">
+    if (index < 6) {
+      dailyForecast.innerHTML += `<div class="col-2">
+          <span class="weather-forecast-day-temperature">
               <img
                 src="https://openweathermap.org/img/wn/${
                   forecastDay.weather[0].icon
@@ -70,7 +71,8 @@ function displayForecast(response) {
             </span>
             <div class="weather-forecast-day">
               <strong>${formatDay(forecastDay.dt)}</strong>
-            </div>`;
+            </div>
+        </div>`;
     }
   });
 }
@@ -110,12 +112,14 @@ function formatHour(timestamp) {
 function displayHourlyForecast(response) {
   let forecastHourly = response.data.hourly;
   console.log(forecastHourly);
+  let hourlyForecast = document.querySelector("#hourly-forecast");
+  hourlyForecast.innerHTML = "";
+
   forecastHourly.forEach(function (forecastH, index) {
     console.log(forecastH);
     if (index < 5) {
-      document.querySelector(
-        "#hourly-forecast"
-      ).innerHTML += `<span class="weather-forecast-hour-temperature">
+      hourlyForecast.innerHTML += `<div class="col">
+            <span class="weather-forecast-hour-temperature">
                 <img
                 src="https://openweathermap.org/img/wn/${
                   forecastH.weather[0].icon
@@ -126,7 +130,8 @@ function displayHourlyForecast(response) {
             </span>
             <div class="weather-forecast-hour">
               <strong>${formatHour(forecastH.dt)}</strong>
-            </div>`;
+            </div>
+          </div>`;
     }
   });
 }
