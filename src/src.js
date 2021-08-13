@@ -210,6 +210,75 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+function getHourlyData(event) {
+  event.preventDefault();
+  document.querySelector("#hourly-forecast").innerHTML = displayHourlyForecast;
+}
+
+let hourlyData = document.querySelector("#hourly-link");
+hourlyData.addEventListener("click", getHourlyData);
+
+function getDailyData(event) {
+  event.preventDefault();
+  document.querySelector("#daily-forecast").innerHTML = displayForecast;
+}
+
+let dailyData = document.querySelector("#days-link");
+dailyData.addEventListener("click", getDailyData);
+
+function getTodayData(event) {
+  event.preventDefault();
+  document.querySelector("#for-today").innerHTML = displayTemperature;
+}
+
+let todayData = document.querySelector("#today-link");
+todayData.addEventListener("click", getTodayData);
+
+function getForecastTomorrow(coordinates) {
+  console.log(coordinates);
+  let apiKey = "b85b42162b692c033775ce60708963f8";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&cnt=1&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(ddisplayTemperatureTomorrow);
+}
+
+function displayTemperatureTomorrow(response) {
+  console.log(response);
+  let iconElement = document.querySelector("#icon");
+  celsiusTemp = Math.round(response.data.main.temp);
+  document.querySelector("#entered-city").innerHTML = response.data.name;
+  document.querySelector("#temperature").innerHTML = Math.round(celsiusTemp);
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#pressure").innerHTML = response.data.main.pressure;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.main.feels_like
+  );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector("#sunrise").innerHTML = sunDate(
+    response.data.sys.sunrise * 1000
+  );
+  document.querySelector("#sunset").innerHTML = sunDate(
+    response.data.sys.sunset * 1000
+  );
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
+  getForecastTomorrow(response.data.coord);
+}
+
+function getTomorrowData(event) {
+  event.preventDefault();
+  document.querySelector("#for-today").innerHTML = displayTemperatureTomorrow;
+}
+
+let tomorrowData = document.querySelector("#tomorrow-link");
+tomorrowData.addEventListener("click", getTomorrowData);
+
 let currentLocation = document.querySelector("#current-location-button");
 currentLocation.addEventListener("click", getCurrentLocation);
 
