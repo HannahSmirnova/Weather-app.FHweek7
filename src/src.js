@@ -173,19 +173,8 @@ function search(city) {
   axios.get(`${apiUrl}`).then(displayTemperature);
 }
 
-function convertTemp(event) {
-  event.preventDefault();
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
-
 function celsiusT(event) {
   event.preventDefault();
-  celsius.classList.add("active");
-  fahrenheit.classList.remove("active");
 
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
@@ -213,13 +202,8 @@ function getCurrentLocation(event) {
 let currentLocation = document.querySelector("#current-location-button");
 currentLocation.addEventListener("click", getCurrentLocation);
 
-let celsiusTemp = null;
-
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", submit);
-
-let fahrenheit = document.querySelector("#fahrenheit-link");
-fahrenheit.addEventListener("click", convertTemp);
 
 let celsius = document.querySelector("#celsius-link");
 celsius.addEventListener("click", celsiusT);
